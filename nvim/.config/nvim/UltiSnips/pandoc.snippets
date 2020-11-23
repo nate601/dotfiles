@@ -1,0 +1,38 @@
+snippet sympy "sympy block " w
+sympy $1 sympy$0
+endsnippet
+
+priority 10000
+snippet 'sympy(.*)sympy' "evaluate sympy" wr
+`!p
+from sympy import *
+x, y, z, t = symbols('x y z t')
+k, m, n = symbols('k m n', integer=True)
+f, g, h = symbols('f g h', cls=Function)
+init_printing()
+snip.rv = eval('latex(' + match.group(1).replace('\\', '') \
+    .replace('^', '**') \
+        .replace('{', '(') \
+	    .replace('}', ')') + ')')
+`
+endsnippet
+
+snippet $ "math" w
+$$ $1 $$$0
+endsnippet 
+
+priority 10000
+snippet '\$\$(.*)\$\$' "evaluate math" wr
+`!p
+from sympy import *
+x, y, z, t = symbols('x y z t')
+k, m, n = symbols('k m n', integer=True)
+f, g, h = symbols('f g h', cls=Function)
+init_printing()
+snip.rv = "$$" + match.group(1) + " = " + eval('latex(' + match.group(1).replace('\\', '') \
+    .replace('^', '**') \
+        .replace('{', '(') \
+	    .replace('}', ')') + ')') + " $$"
+`
+endsnippet
+    
