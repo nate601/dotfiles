@@ -20,9 +20,6 @@ if status --is-interactive
     abbr --add --global -- nvimconfig 'nvim /home/nathan/.dotfiles/nvim/.config/nvim/init.vim'
     abbr --add --global -- fishabbr 'nvim /home/nathan/.dotfiles/fish/.config/fish/abbr.fish'
     abbr --add --global -- l ls
-    abbr --add --global -- lg lazygit
-    abbr --add --global -- pbb 'pb push'
-    abbr --add --global -- pbf 'pb push --file'
     abbr --add --global -- pcs 'nvim Program.cs'
     abbr --add --global -- sl 'exa --header --long --git'
     abbr --add --global -- v nvim
