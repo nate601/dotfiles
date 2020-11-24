@@ -17,9 +17,10 @@ if status --is-interactive
     abbr --add --global -- gd 'git difftool'
     abbr --add --global -- gp 'git push'
     abbr --add --global -- i3config 'nvim /home/nathan/.dotfiles/i3/.config/i3/config'
+    abbr --add --global -- nvimconfig 'nvim /home/nathan/.dotfiles/nvim/.config/nvim/init.vim'
+    abbr --add --global -- fishabbr 'nvim /home/nathan/.dotfiles/fish/.config/fish/abbr.fish'
     abbr --add --global -- l ls
     abbr --add --global -- lg lazygit
-    abbr --add --global -- nvimconfig 'nvim /home/nathan/.dotfiles/nvim/.config/nvim/init.vim'
     abbr --add --global -- pbb 'pb push'
     abbr --add --global -- pbf 'pb push --file'
     abbr --add --global -- pcs 'nvim Program.cs'
