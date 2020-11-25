@@ -13,4 +13,6 @@ set -gx NUGET_PACKAGES $XDG_CONFIG_HOME/NuGetPackages
 thefuck --alias | source
 source ~/.config/fish/abbr.fish    
 fish_ssh_agent
-ssh-add ~/neb.priv
+if not __ssh_agent_is_started
+    ssh-add ~/.neb.priv
+end
