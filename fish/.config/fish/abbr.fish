@@ -26,6 +26,7 @@ if status --is-interactive
     abbr --add --global -- i3config 'nvim /home/nathan/.dotfiles/i3/.config/i3/config'
     abbr --add --global -- nvimconfig 'nvim /home/nathan/.dotfiles/nvim/.config/nvim/init.vim'
     abbr --add --global -- fishabbr 'nvim /home/nathan/.dotfiles/fish/.config/fish/abbr.fish'
+    abbr --add --global -- fishconfig 'nvim /home/nathan/.dotfiles/fish/.config/fish/config.fish'
     abbr --add --global -- pcs 'nvim Program.cs'
     abbr --add --global -- sl 'exa --header --long --git'
     # Vim shortcuts and re-abbreviations
