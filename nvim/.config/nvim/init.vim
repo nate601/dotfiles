@@ -51,6 +51,8 @@ Plug 'rhysd/committia.vim'
 Plug 'whiteinge/diffconflicts'
 " Underline cursor word
 Plug 'itchyny/vim-cursorword'
+" Underline unique letters
+Plug 'unblevable/quick-scope'
 
 Plug 'voldikss/vim-floaterm'
 
@@ -92,6 +94,9 @@ let g:airline#extensions#tabline#enabled = 1
 let g:floaterm_keymap_toggle = '<M-;>'
 let g:floaterm_gitcommit = 'floaterm'
 
+
+"
+let g:qs_highlight_on_keys = ['f', 'F', 't', 'T']
 
 
 set splitbelow
