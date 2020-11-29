@@ -19,7 +19,8 @@ if status --is-interactive
     abbr --add --global -- gc 'git commit'
     abbr --add --global -- gca 'git commit -a'
     abbr --add --global -- gcam 'git commit -a -m '
-    abbr --add --global -- gd 'git difftool'
+    abbr --add --global -- gd 'git diff'
+    abbr --add --global -- gds 'git difftool'
     abbr --add --global -- gp 'git push'
     abbr --add --global -- gs 'git status'
     # Config Files
