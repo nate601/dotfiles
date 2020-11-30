@@ -64,6 +64,7 @@ Plug 'junegunn/goyo.vim'
 Plug 'mhinz/vim-startify'
 Plug 'wincent/loupe'
 Plug 'liuchengxu/vim-which-key'
+Plug 'RRethy/vim-hexokinase', {'do': 'make hexokinase'}
 
 
 
