@@ -10,6 +10,11 @@ set -gx XDG_DATA_HOME $HOME/.local/share
 set -gx WAKATIME_HOME $XDG_CONFIG_HOME/wakatime
 set -gx NUGET_PACKAGES $XDG_CONFIG_HOME/NuGetPackages
 
+#Editors
+
+set -gx EDITOR nvim
+set -gx VISUAL nvim
+
 thefuck --alias | source
 source ~/.config/fish/abbr.fish    
 fish_ssh_agent
