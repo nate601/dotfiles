@@ -1,0 +1,6 @@
+#!/usr/bin/Rscript
+library('rmarkdown')
+input<-file('stdin', 'r')
+fileName <- readLines(input, n=1)
+write(fileName,"")
+render(fileName)
