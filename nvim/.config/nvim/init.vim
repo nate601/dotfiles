@@ -2,6 +2,7 @@ call plug#begin('~/.local/share/nvim/plugged')
 
 " Autocomplete for surround
 Plug 'tpope/vim-surround'
+Plug 'jiangmiao/auto-pairs'
 " Git
 Plug 'tpope/vim-fugitive'
 " Dispatch Buiolds
@@ -24,6 +25,8 @@ Plug 'dense-analysis/ale'
 
 Plug 'SirVer/ultisnips'
 Plug 'honza/vim-snippets'
+
+Plug 'puremourning/vimspector', {'for':['cs']}
 
 " Intellisense
 Plug 'prabirshrestha/asyncomplete.vim'
@@ -63,6 +66,8 @@ Plug 'wincent/loupe'
 Plug 'liuchengxu/vim-which-key'
 
 
+
+
 call plug#end()
 
 colorscheme dracula
@@ -98,6 +103,13 @@ let g:floaterm_gitcommit = 'floaterm'
 "
 let g:qs_highlight_on_keys = ['f', 'F', 't', 'T']
 
+" let g:vimspector_enable_mappings = 'VISUAL_STUDIO'
+
+autocmd FileType cs nmap <Leader>db  <Plug>VimspectorToggleBreakpoint
+autocmd FileType cs nmap <Leader>dB  <Plug>VimspectorToggleConditionalBreakpoint
+autocmd FileType cs nmap <Leader>dd  <Plug>VimspectorContinue
+autocmd FileType cs nmap <Leader>de  <Plug>VimspectorReset
+autocmd FileType cs nmap <Leader>drt <Plug>VimspectorRunToCursor
 
 set splitbelow
 set splitright
