@@ -44,7 +44,7 @@ set previewheight=5
 
 autocmd FileType cs nnoremap <buffer> <leader>fg :OmniSharpGotoDefinition<CR>
 autocmd FileType cs nnoremap <buffer> <leader>ft :OmniSharpTypeLookup<CR>
-autocmd FileType cs nmap <silent> <buffer> <Leader>fdd <Plug>(omnisharp_preview_definition)
+autocmd FileType cs nmap <silent> <buffer> <Leader>fD <Plug>(omnisharp_preview_definition)
 
 autocmd FileType cs nnoremap <buffer> <leader>fd :OmniSharpDocumentation<CR>
 
