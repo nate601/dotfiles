@@ -37,6 +37,8 @@ exec --no-startup-id compton
 
 exec --no-startup-id polybar example &
 
+bindsym $mod+d exec --no-startup-id ls ~/.local/bin/ | rofi -dmenu -i -matching fuzzy | fish
+
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
 
