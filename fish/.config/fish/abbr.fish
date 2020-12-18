@@ -35,6 +35,7 @@ if status --is-interactive
     abbr --add --global -- vi nvim
     abbr --add --global -- vim nvim
     abbr --add --global -- g gvim
+    abbr --add --global -- gpcs gvim Program.cs
     # Abbreviate dotnet project creation
     abbr --add --global -- dotnew 'dotnet new'
 end
