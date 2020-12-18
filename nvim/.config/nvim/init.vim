@@ -67,6 +67,9 @@ Plug 'liuchengxu/vim-which-key'
 Plug 'RRethy/vim-hexokinase', {'do': 'make hexokinase'}
 
 
+Plug 'camspiers/animate.vim'
+Plug 'camspiers/lens.vim'
+
 
 
 call plug#end()
