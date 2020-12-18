@@ -6,9 +6,11 @@ let g:OmniSharp_server_stdio = 1
 
 let g:OmniSharp_highlight_types = 3
 
-let g:OmniSharp_want_snippet=1
+let g:OmniSharp_want_snippet = 1
 
 let g:OmniSharp_selector_ui = 'ctrlp'  " Use ctrlp.vim
+
+" let g:OmniSharp_server_use_mono = 1
 
 inoremap <expr> <Tab>   pumvisible() ? "\<C-n>" : "\<Tab>"
 inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
@@ -44,7 +46,7 @@ set previewheight=5
 
 autocmd FileType cs nnoremap <buffer> <leader>fg :OmniSharpGotoDefinition<CR>
 autocmd FileType cs nnoremap <buffer> <leader>ft :OmniSharpTypeLookup<CR>
-autocmd FileType cs nmap <silent> <buffer> <Leader>fD <Plug>(omnisharp_preview_definition)
+autocmd FileType cs nmap <silent> <buffer> <Leader>fdd <Plug>(omnisharp_preview_definition)
 
 autocmd FileType cs nnoremap <buffer> <leader>fd :OmniSharpDocumentation<CR>
 
@@ -58,4 +60,6 @@ autocmd FileType cs nnoremap <leader>ff :OmniSharpCodeFormat<CR>
 autocmd FileType cs nnoremap ;; A;<Esc>
 autocmd FileType cs nnoremap <buffer> <C-\> :OmniSharpSignatureHelp<CR>
 autocmd FileType cs inoremap <buffer> <C-\> <C-o>:OmniSharpSignatureHelp<CR>
+autocmd FileType cs nmap <buffer> [[ <Plug>(omnisharp_navigate_up)
+autocmd FileType cs nmap <buffer> ]] <Plug>(omnisharp_navigate_down)
 autocmd FileType cs let b:dispatch = 'dotnet run'
