@@ -1,5 +1,3 @@
-
-
 let g:OmniSharp_timeout = 5
 
 let g:OmniSharp_server_stdio = 1
@@ -37,6 +35,9 @@ call asyncomplete#register_source(asyncomplete#sources#omni#get_source_options({
                 \ }))
 
 
+let g:ale_linters ={
+            \ 'cs': ['OmniSharp']
+            \}
 set completeopt=menuone,noinsert,noselect,preview
 
 " Set desired preview window height for viewing documentation.

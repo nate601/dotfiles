@@ -70,6 +70,7 @@ Plug 'RRethy/vim-hexokinase', {'do': 'make hexokinase'}
 Plug 'camspiers/animate.vim'
 Plug 'camspiers/lens.vim'
 
+Plug 'jpalardy/vim-slime'
 
 
 call plug#end()
@@ -82,7 +83,22 @@ so ~/.config/nvim/omnisharpConfig.vim
 " C-p config
 let g:ctrlp_user_command = ['.git', 'cd %s && git ls-files -co --exclude-standard']
 
+
+let g:which_key_map = {}
+
+let g:which_key_map['b'] = {
+            \ 'name' : '+buffers',
+            \ 'n' : ['<leader>bn', 'next-buffer'],
+            \ 'p' : ['<leader>bp', 'prev-buffer'],
+            \ 'd' : ['<leader>bd', 'delete-buffer'],
+            \ 's' : ['<leader>bs', 'vertical-split'],
+            \}
+            
+
+
 nnoremap <silent> <leader> :WhichKey '\'<CR>
+call which_key#register('\', "g:which_key_map") 
+
 
 autocmd FileType md nnoremap <leader> fr :!pandoc % -f markdown -t latex -o %.pdf<CR>
 
@@ -96,12 +112,18 @@ nnoremap <space> za
 inoremap <C-l> <c-g>u<Esc>[s1z=`]a<c-g>u
 inoremap <C-k> <c-g>u<Esc>[sz=`]a<c-g>u
 nnoremap <C-l> :set spell!<CR>
+nnoremap <leader>bn :bn<CR>
+nnoremap <leader>bp :bp<CR>
+nnoremap <leader>bd :bd<CR>
+nnoremap <leader>bs :buffers<CR>:vert sb 
 
 nnoremap <C-g> :Goyo<CR>
 let g:airline#extensions#tabline#enabled = 1
 
 let g:floaterm_keymap_toggle = '<M-;>'
 let g:floaterm_gitcommit = 'floaterm'
+
+let g:slime_target = "kitty"
 
 
 "
