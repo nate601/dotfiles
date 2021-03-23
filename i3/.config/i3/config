@@ -39,7 +39,8 @@ exec --no-startup-id compton
 
 exec --no-startup-id polybar example &
 
-bindsym $mod+d exec --no-startup-id ls ~/.local/bin/ | rofi -dmenu -i -matching fuzzy | fish
+bindsym $mod+d exec --no-startup-id ls /home/nate601/.fzf/bin /home/nate601/.dotnet/tools /home/nate601/.cargo/bin /home/nathan/.local/kitty.app/bin /usr/local/bin /usr/bin /bin /usr/local/games /usr/games /home/nathan/.dotfiles/scripts /home/nathan/.local/bin /home/nathan/.dotfiles/scripts /home/nathan/.local/bin | awk '!visited[$0]++' | rofi -dmenu -i -matching fuzzy | fish
+bindsym $mod+shift+d exec --no-startup-id ls ~/.local/bin/ | rofi -dmenu -i -matching fuzzy | fish
 bindsym $mod+w exec --no-startup-id rofi -show window
 bindsym $mod+t exec --no-startup-id fish -c todoAdd
 bindsym $mod+shift+t exec --no-startup-id ~/.local/bin/TickTick
