@@ -50,12 +50,7 @@ bindsym $mod+n exec --no-startup-id kill -s USR1 $(pidof deadd-notification-cent
 floating_modifier $mod
 
 # start a terminal
-bindsym $mod+Return exec ~/.local/kitty.app/bin/kitty
-
-# start browser
-bindsym $mod+e exec --no-startup-id qutebrowser
-
-# dotnet configuration
+bindsym $mod+Return exec ~/.local/kitty.app/bin/kitty # start browser bindsym $mod+e exec --no-startup-id $BROWSER dotnet configuration
 bindsym $mod+p exec --no-startup-id gvim
 
 # kill focused window
