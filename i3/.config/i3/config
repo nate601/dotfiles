@@ -41,6 +41,8 @@ exec --no-startup-id polybar example &
 
 bindsym $mod+d exec --no-startup-id ls ~/.local/bin/ | rofi -dmenu -i -matching fuzzy | fish
 bindsym $mod+w exec --no-startup-id rofi -show window
+bindsym $mod+t exec --no-startup-id fish -c todoAdd
+bindsym $mod+shift+t exec --no-startup-id ~/.local/bin/TickTick
 bindsym $mod+n exec --no-startup-id kill -s USR1 $(pidof deadd-notification-center)
 
 # Use Mouse+$mod to drag floating windows to their wanted position
