@@ -46,7 +46,8 @@ Plug 'vim-pandoc/vim-pandoc'
 Plug 'vim-pandoc/vim-pandoc-syntax'
 Plug 'vim-pandoc/vim-rmarkdown'
 
-Plug 'mipmip/vim-scimark'
+
+Plug 'mbajobue/scim-latex-tables'
 Plug 'gioele/vim-autoswap'
 
 " Better commit buffers
@@ -56,8 +57,6 @@ Plug 'whiteinge/diffconflicts'
 Plug 'itchyny/vim-cursorword'
 " Underline unique letters
 Plug 'unblevable/quick-scope'
-
-Plug 'voldikss/vim-floaterm'
 
 Plug 'junegunn/goyo.vim'
 
@@ -72,6 +71,7 @@ Plug 'camspiers/lens.vim'
 
 Plug 'jpalardy/vim-slime'
 
+Plug 'machakann/vim-highlightedyank'
 
 call plug#end()
 
@@ -110,18 +110,16 @@ inoremap jk <Esc>
 nnoremap <space> za
 
 inoremap <C-l> <c-g>u<Esc>[s1z=`]a<c-g>u
-inoremap <C-k> <c-g>u<Esc>[sz=`]a<c-g>u
 nnoremap <C-l> :set spell!<CR>
 nnoremap <leader>bn :bn<CR>
 nnoremap <leader>bp :bp<CR>
 nnoremap <leader>bd :bd<CR>
 nnoremap <leader>bs :buffers<CR>:vert sb 
 
+cnoremap w!! execute 'silent! write !sudo tee % >/dev/null' <bar> edit!
+
 nnoremap <C-g> :Goyo<CR>
 let g:airline#extensions#tabline#enabled = 1
-
-let g:floaterm_keymap_toggle = '<M-;>'
-let g:floaterm_gitcommit = 'floaterm'
 
 let g:slime_target = "kitty"
 
