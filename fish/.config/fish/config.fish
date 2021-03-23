@@ -14,7 +14,7 @@ set -gx NUGET_PACKAGES $XDG_CONFIG_HOME/NuGetPackages
 
 set -gx EDITOR nvim
 set -gx VISUAL nvim
-set -gx BROWSER qutebrowser
+set -gx BROWSER google-chrome
 
 # go
 
