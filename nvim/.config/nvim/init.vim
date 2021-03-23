@@ -5,6 +5,7 @@ Plug 'tpope/vim-surround'
 Plug 'jiangmiao/auto-pairs'
 " Git
 Plug 'tpope/vim-fugitive'
+Plug 'tpope/vim-rhubarb'
 " Dispatch Buiolds
 Plug 'tpope/vim-dispatch'
 " Autocomment
