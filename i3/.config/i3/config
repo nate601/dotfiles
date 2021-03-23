@@ -29,7 +29,9 @@ exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock --nofork -f -e
 # and nm-applet is a desktop environment-independent system tray GUI for it.
 exec --no-startup-id nm-tray
 
-exec --no-startup-id dunst &
+exec --no-startup-id syncthing-gtk &
+
+exec --no-startup-id deadd-notification-center &
 
 exec --no-startup-id xmodmap ~/.dotfiles/scripts/speedSwapper
 
@@ -39,6 +41,7 @@ exec --no-startup-id polybar example &
 
 bindsym $mod+d exec --no-startup-id ls ~/.local/bin/ | rofi -dmenu -i -matching fuzzy | fish
 bindsym $mod+w exec --no-startup-id rofi -show window
+bindsym $mod+n exec --no-startup-id kill -s USR1 $(pidof deadd-notification-center)
 
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
