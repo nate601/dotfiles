@@ -11,8 +11,8 @@ font pango:monospace 8
 # Gaps config
 for_window [class=".*"] border pixel 0
 
-gaps inner 15
-gaps outer 15
+gaps inner 10
+gaps outer 10
 
 #background image
 
