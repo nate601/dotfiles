@@ -49,6 +49,9 @@ Plug 'vim-pandoc/vim-rmarkdown'
 
 
 Plug 'mbajobue/scim-latex-tables'
+
+Plug 'lervag/vimtex'
+
 Plug 'gioele/vim-autoswap'
 
 " Better commit buffers
@@ -73,6 +76,9 @@ Plug 'camspiers/lens.vim'
 Plug 'jpalardy/vim-slime'
 
 Plug 'machakann/vim-highlightedyank'
+Plug 'dart-lang/dart-vim-plugin'
+
+Plug 'AndrewRadev/tagalong.vim'
 
 call plug#end()
 
@@ -123,6 +129,8 @@ nnoremap <C-g> :Goyo<CR>
 let g:airline#extensions#tabline#enabled = 1
 
 let g:slime_target = "kitty"
+
+let g:vimtex_view_method = "zathura"
 
 
 "
