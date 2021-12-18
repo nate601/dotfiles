@@ -1,5 +1,8 @@
 let g:netrw_dirhistmax  =10
-let g:netrw_dirhistcnt =8
+let g:netrw_dirhistcnt =1
+let g:netrw_dirhist_1='/home/nathan/Workspace/mtx/matrix-docker-ansible-deploy/inventory/host_vars/matrix.nate601.me'
+let g:netrw_dirhist_0='/home/nathan/Workspace/Braden/cookies.txt'
+let g:netrw_dirhist_9='/etc/openvpn'
 let g:netrw_dirhist_8='/var/spool/cron/crontabs'
 let g:netrw_dirhist_7='/var/spool/mail'
 let g:netrw_dirhist_6='/var/spool'
@@ -7,6 +10,3 @@ let g:netrw_dirhist_5='/var/spool/cups'
 let g:netrw_dirhist_4='/var/spool'
 let g:netrw_dirhist_3='/var/spool/cups-pdf'
 let g:netrw_dirhist_2='/var/spool/cups-pdf/SPOOL'
-let g:netrw_dirhist_1='/var/spool/cups-pdf'
-let g:netrw_dirhist_0='/var/spool'
-let g:netrw_dirhist_9='/var/spool/cron'
