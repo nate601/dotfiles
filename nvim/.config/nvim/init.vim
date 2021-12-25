@@ -87,6 +87,8 @@ Plug 'luochen1990/rainbow'
 
 Plug 'davidhalter/jedi-vim'
 
+Plug 'dhruvasagar/vim-table-mode'
+Plug 'ryanoasis/vim-devicons'
 
 call plug#end()
 
@@ -101,6 +103,7 @@ so ~/.config/nvim/omnisharpConfig.vim
 let g:ctrlp_user_command = ['.git', 'cd %s && git ls-files -co --exclude-standard']
 
 
+
 let g:which_key_map = {}
 
 let g:which_key_map['b'] = {
@@ -111,6 +114,10 @@ let g:which_key_map['b'] = {
             \ 's' : ['<leader>bs', 'vertical-split'],
             \}
             
+let g:ale_linters ={
+            \ 'cs': ['OmniSharp'],
+            \ 'text': ['vale', 'alex', 'languagetool']
+            \}
 
 
 nnoremap <silent> <leader> :WhichKey '\'<CR>
@@ -141,6 +148,10 @@ let g:airline#extensions#tabline#enabled = 1
 let g:slime_target = "kitty"
 
 let g:vimtex_view_method = "zathura"
+let g:tex_flavor='latex'
+let g:vimtex_quickfix_mode=0
+let g:tex_conceal='abdmg'
+
 
 
 "
