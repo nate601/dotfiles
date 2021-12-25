@@ -18,17 +18,6 @@ gaps outer 10
 
 exec --no-startup-id feh --no-fehbg --bg-center ~/Documents/Images/Wallpaper.jpg
 
-# xss-lock grabs a logind suspend inhibit lock and will use i3lock to lock the
-# screen before suspend. Use loginctl lock-session to lock your screen.
-exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock --nofork -f -e 
-
-# Set root color
-#exec --no-startup-id xsetroot -solid '#101010'
-
-# NetworkManager is the most popular way to manage wireless networks on Linux,
-# and nm-applet is a desktop environment-independent system tray GUI for it.
-exec --no-startup-id nm-tray
-
 exec --no-startup-id syncthing-gtk &
 
 exec --no-startup-id deadd-notification-center &
@@ -40,17 +29,20 @@ exec --no-startup-id compton
 exec --no-startup-id polybar example &
 
 bindsym $mod+d exec --no-startup-id ls /home/nate601/.fzf/bin /home/nate601/.dotnet/tools /home/nate601/.cargo/bin /home/nathan/.local/kitty.app/bin /usr/local/bin /usr/bin /bin /usr/local/games /usr/games /home/nathan/.dotfiles/scripts /home/nathan/.local/bin /home/nathan/.dotfiles/scripts /home/nathan/.local/bin | awk '!visited[$0]++' | rofi -dmenu -i -matching fuzzy | fish
-bindsym $mod+shift+d exec --no-startup-id ls ~/.local/bin/ | rofi -dmenu -i -matching fuzzy | fish
+bindsym $mod+shift+d exec --no-startup-id ls ~/.local/bin/ ~/.dotfiles/scripts | rofi -dmenu -i -matching fuzzy | fish
 bindsym $mod+w exec --no-startup-id rofi -show window
 bindsym $mod+t exec --no-startup-id fish -c todoAdd
 bindsym $mod+shift+t exec --no-startup-id ~/.local/bin/TickTick
 bindsym $mod+n exec --no-startup-id kill -s USR1 $(pidof deadd-notification-center)
+bindsym $mod+c exec --no-startup-id ~/.local/kitty.app/bin/kitty calcurse
 
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
 
 # start a terminal
-bindsym $mod+Return exec ~/.local/kitty.app/bin/kitty # start browser bindsym $mod+e exec --no-startup-id $BROWSER dotnet configuration
+bindsym $mod+Return exec ~/.local/kitty.app/bin/kitty # start browser 
+bindsym $mod+e exec --no-startup-id $BROWSER 
+bindsym $mod+m exec --no-startup-id ~/.local/kitty.app/bin/kitty neomutt
 bindsym $mod+p exec --no-startup-id gvim
 
 # kill focused window
