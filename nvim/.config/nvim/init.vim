@@ -27,7 +27,7 @@ Plug 'dense-analysis/ale'
 Plug 'SirVer/ultisnips'
 Plug 'honza/vim-snippets'
 
-Plug 'puremourning/vimspector', {'for':['cs']}
+Plug 'puremourning/vimspector', {'for':['cs, py']}
 
 " Intellisense
 Plug 'prabirshrestha/asyncomplete.vim'
@@ -80,9 +80,19 @@ Plug 'dart-lang/dart-vim-plugin'
 
 Plug 'AndrewRadev/tagalong.vim'
 
+Plug 'kyazdani42/nvim-web-devicons'
+Plug 'akinsho/nvim-bufferline.lua'
+
+Plug 'luochen1990/rainbow'
+
+Plug 'davidhalter/jedi-vim'
+
+
 call plug#end()
 
 colorscheme dracula
+
+let g:rainbow_active=1
 
 "Omnisharp config
 so ~/.config/nvim/omnisharpConfig.vim
