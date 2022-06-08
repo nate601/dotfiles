@@ -18,7 +18,7 @@ gaps outer 10
 
 exec --no-startup-id feh --no-fehbg --bg-center ~/Documents/Images/Wallpaper.jpg
 
-exec --no-startup-id syncthing-gtk &
+#exec --no-startup-id syncthing-gtk &
 
 exec --no-startup-id deadd-notification-center &
 
@@ -27,6 +27,8 @@ exec --no-startup-id xmodmap ~/.dotfiles/scripts/speedSwapper
 exec --no-startup-id compton
 
 exec --no-startup-id polybar example &
+
+exec --no-startup-id udiskie &
 
 bindsym $mod+d exec --no-startup-id ls /home/nate601/.fzf/bin /home/nate601/.dotnet/tools /home/nate601/.cargo/bin /home/nathan/.local/kitty.app/bin /usr/local/bin /usr/bin /bin /usr/local/games /usr/games /home/nathan/.dotfiles/scripts /home/nathan/.local/bin /home/nathan/.dotfiles/scripts /home/nathan/.local/bin | awk '!visited[$0]++' | rofi -dmenu -i -matching fuzzy | fish
 bindsym $mod+shift+d exec --no-startup-id ls ~/.local/bin/ ~/.dotfiles/scripts | rofi -dmenu -i -matching fuzzy | fish
@@ -41,7 +43,7 @@ floating_modifier $mod
 
 # start a terminal
 bindsym $mod+Return exec ~/.local/kitty.app/bin/kitty # start browser 
-bindsym $mod+e exec --no-startup-id $BROWSER 
+bindsym $mod+e exec --no-startup-id /usr/bin/google-chrome
 bindsym $mod+m exec --no-startup-id ~/.local/kitty.app/bin/kitty neomutt
 bindsym $mod+p exec --no-startup-id gvim
 
