@@ -1,4 +1,3 @@
-# Defined in - @ line 1
-function cat --wraps=bat --description 'alias cat=bat'
-  bat  $argv;
+function cat --wraps=bat --wraps=batcat --description 'alias cat=bat'
+  batcat  $argv;
 end
