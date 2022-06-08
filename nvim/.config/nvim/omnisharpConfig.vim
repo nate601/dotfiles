@@ -46,6 +46,15 @@ set previewheight=5
 
 " autocmd CursorHold *.cs call OmniSharp#actions#documentation#TypeLookup()
 
+"\fg = GoTo Definition
+"\ft = Type Lookup
+"\fdd = Preview Definition
+"\fd = View Documentation
+"\fi = view implentations
+"\<space> = View Code Actions
+"\fr = Rename
+"\ff = Code Format
+"
 autocmd FileType cs nnoremap <buffer> <leader>fg :OmniSharpGotoDefinition<CR>
 autocmd FileType cs nnoremap <buffer> <leader>ft :OmniSharpTypeLookup<CR>
 autocmd FileType cs nmap <silent> <buffer> <Leader>fdd <Plug>(omnisharp_preview_definition)

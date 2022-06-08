@@ -90,6 +90,9 @@ Plug 'davidhalter/jedi-vim'
 Plug 'dhruvasagar/vim-table-mode'
 Plug 'ryanoasis/vim-devicons'
 
+Plug 'ycm-core/YouCompleteMe'
+Plug 'dstein64/vim-startuptime'
+
 call plug#end()
 
 colorscheme dracula
@@ -116,8 +119,10 @@ let g:which_key_map['b'] = {
             
 let g:ale_linters ={
             \ 'cs': ['OmniSharp'],
-            \ 'text': ['vale', 'alex', 'languagetool']
+            \ 'text': ['vale', 'alex', 'languagetool'],
+            \ 'rust': ['clippy']
             \}
+let g:ale_linters_ignore ={'rust':['cargo', 'rls', 'rustc']}
 
 
 nnoremap <silent> <leader> :WhichKey '\'<CR>
@@ -164,6 +169,29 @@ autocmd FileType cs nmap <Leader>dB  <Plug>VimspectorToggleConditionalBreakpoint
 autocmd FileType cs nmap <Leader>dd  <Plug>VimspectorContinue
 autocmd FileType cs nmap <Leader>de  <Plug>VimspectorReset
 autocmd FileType cs nmap <Leader>drt <Plug>VimspectorRunToCursor
+
+"\fg = GoTo Definition
+"\ft = Type Lookup
+"\fd = View Documentation
+"\fdd = Preview Definition
+"\fi = view implentations
+"\<space> = View Code Actions
+"\fr = Rename
+"\ff = Code Format
+
+nnoremap <leader>fg :YcmCompleter GoToDefinition<cr>
+nnoremap <leader>ft :YcmCompleter GetType<cr>
+nnoremap <leader>fd :YcmCompleter GetDoc<cr>
+nnoremap <leader>fdd :YcmCompleter GoToDefinition<cr>
+nnoremap <leader>fi :YcmCompleter GoToImplementation<cr>
+nnoremap <leader><space> :YcmCompleter FixIt<cr>
+nnoremap <leader>fr :YcmCompleter RefactorRename
+nnoremap <leader>ff :YcmCompleter Format<cr>
+
+
+
+
+nnoremap <leader>fl :YcmRestartServer<cr>
 
 set splitbelow
 set splitright
