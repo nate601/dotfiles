@@ -90,8 +90,10 @@ Plug 'davidhalter/jedi-vim'
 Plug 'dhruvasagar/vim-table-mode'
 Plug 'ryanoasis/vim-devicons'
 
-Plug 'ycm-core/YouCompleteMe'
+" Plug 'ycm-core/YouCompleteMe'
+Plug 'neoclide/coc.nvim', {'branch':'release'}
 Plug 'dstein64/vim-startuptime'
+Plug 'junegunn/vim-peekaboo'
 
 call plug#end()
 
@@ -120,7 +122,6 @@ let g:which_key_map['b'] = {
 let g:ale_linters ={
             \ 'cs': ['OmniSharp'],
             \ 'text': ['vale', 'alex', 'languagetool'],
-            \ 'rust': ['clippy']
             \}
 let g:ale_linters_ignore ={'rust':['cargo', 'rls', 'rustc']}
 
@@ -179,14 +180,55 @@ autocmd FileType cs nmap <Leader>drt <Plug>VimspectorRunToCursor
 "\fr = Rename
 "\ff = Code Format
 
-nnoremap <leader>fg :YcmCompleter GoToDefinition<cr>
-nnoremap <leader>ft :YcmCompleter GetType<cr>
-nnoremap <leader>fd :YcmCompleter GetDoc<cr>
-nnoremap <leader>fdd :YcmCompleter GoToDefinition<cr>
-nnoremap <leader>fi :YcmCompleter GoToImplementation<cr>
-nnoremap <leader><space> :YcmCompleter FixIt<cr>
-nnoremap <leader>fr :YcmCompleter RefactorRename
-nnoremap <leader>ff :YcmCompleter Format<cr>
+
+inoremap <silent><expr> <TAB>
+      \ pumvisible() ? "\<C-n>" :
+      \ CheckBackspace() ? "\<TAB>" :
+      \ coc#refresh()
+inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
+
+inoremap <silent><expr> <c-space> coc#refresh()
+
+function! CheckBackspace() abort
+  let col = col('.') - 1
+    return !col || getline('.')[col - 1]  =~# '\s'
+endfunction
+
+
+function! ShowDocumentation()
+    if CocAction('hasProvider', 'hover')
+            call CocActionAsync('doHover')
+              else
+                      call feedkeys('K', 'in')
+                        endif
+                    endfunction
+
+                    autocmd CursorHold * silent call CocActionAsync('highlight')
+
+nnoremap <leader><space> <Plug>(coc-codeaction-cursor)
+
+
+nmap <leader>fg <Plug>(coc-definition)
+nmap <leader>ft <Plug>(coc-type-definition)
+nmap <leader>fd :call ShowDocumentation()<CR>
+"preview definitionj
+nmap <leader>fi <Plug>(coc-implementation)
+nmap <leader><space> <Plug>(coc-codeaction-line)
+nmap <leader>f<space> <Plug>(coc-codeaction-cursor)
+nmap <leader>fr <Plug>(coc-rename)
+nmap <leader>ff :call CocActionAsync('format')<CR>
+
+
+
+
+" nnoremap <leader>fg :YcmCompleter GoToDefinition<cr>
+" nnoremap <leader>ft :YcmCompleter GetType<cr>
+" nnoremap <leader>fd :YcmCompleter GetDoc<cr>
+" nnoremap <leader>fdd :YcmCompleter GoToDefinition<cr>
+" nnoremap <leader>fi :YcmCompleter GoToImplementation<cr>
+" nnoremap <leader><space> :YcmCompleter FixIt<cr>
+" nnoremap <leader>fr :YcmCompleter RefactorRename
+" nnoremap <leader>ff :YcmCompleter Format<cr>
 
 
 
