@@ -6,6 +6,7 @@ Plug 'jiangmiao/auto-pairs'
 " Git
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-rhubarb'
+Plug 'mhinz/vim-signify'
 " Dispatch Buiolds
 Plug 'tpope/vim-dispatch'
 " Autocomment
@@ -19,8 +20,12 @@ Plug 'vim-airline/vim-airline'
 " Skin
 Plug 'dracula/vim', { 'as': 'dracula' }
 " C-p
-Plug 'ctrlpvim/ctrlp.vim'
-" omnisharp
+" Plug 'ctrlpvim/ctrlp.vim'
+
+Plug 'nvim-lua/plenary.nvim'
+Plug 'nvim-telescope/telescope.nvim'
+
+"" omnisharp
 Plug 'OmniSharp/Omnisharp-vim', {'for':['cs', 'csx']}
 Plug 'dense-analysis/ale'
 
@@ -214,11 +219,13 @@ nmap <leader>fd :call ShowDocumentation()<CR>
 "preview definitionj
 nmap <leader>fi <Plug>(coc-implementation)
 nmap <leader><space> <Plug>(coc-codeaction-line)
+xmap <leader><space> <Plug>(coc-codeaction-selected)
 nmap <leader>f<space> <Plug>(coc-codeaction-cursor)
 nmap <leader>fr <Plug>(coc-rename)
 nmap <leader>ff :call CocActionAsync('format')<CR>
 
 
+nnoremap <c-p> <cmd>Telescope find_files<cr>
 
 
 " nnoremap <leader>fg :YcmCompleter GoToDefinition<cr>
