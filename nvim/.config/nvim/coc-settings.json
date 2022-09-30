@@ -1,5 +1,24 @@
 {
     "diagnostic.checkCurrentLine": true,
     "rust-analyzer.checkOnSave.command": "clippy",
-    "rust-analyzer.rustfmt.extraArgs": ["+nightly"]
+    "rust-analyzer.rustfmt.extraArgs": [
+        "+nightly"
+    ],
+    "languageserver": {
+        "prosemd": {
+            "command": "~/.local/bin/prosemd-lsp-linux",
+            "args": [
+                "--stdio"
+            ],
+            "filetypes": [
+                "markdown",
+                "rmarkdown",
+                "rmd"
+            ],
+            "trace.server": "verbose",
+            "settings": {
+                "validate": true
+            }
+        }
+    }
 }
