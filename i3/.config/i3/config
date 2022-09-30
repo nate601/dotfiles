@@ -24,7 +24,9 @@ exec --no-startup-id deadd-notification-center &
 
 exec --no-startup-id xmodmap ~/.dotfiles/scripts/speedSwapper
 
-exec --no-startup-id compton
+exec --no-startup-id picom --config ~/.config/compton.conf
+
+exec --no-startup-id guake
 
 exec --no-startup-id polybar example &
 
@@ -36,15 +38,14 @@ bindsym $mod+w exec --no-startup-id rofi -show window
 bindsym $mod+t exec --no-startup-id fish -c todoAdd
 bindsym $mod+shift+t exec --no-startup-id ~/.local/bin/TickTick
 bindsym $mod+n exec --no-startup-id kill -s USR1 $(pidof deadd-notification-center)
-bindsym $mod+c exec --no-startup-id ~/.local/kitty.app/bin/kitty calcurse
 
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
 
 # start a terminal
-bindsym $mod+Return exec ~/.local/kitty.app/bin/kitty # start browser 
+bindsym $mod+Return exec /usr/bin/kitty # start browser 
 bindsym $mod+e exec --no-startup-id /usr/bin/google-chrome
-bindsym $mod+m exec --no-startup-id ~/.local/kitty.app/bin/kitty neomutt
+bindsym $mod+m exec --no-startup-id /usr/bin/kitty neomutt
 bindsym $mod+p exec --no-startup-id gvim
 
 # kill focused window
@@ -128,6 +129,8 @@ bindsym $mod+Shift+c reload
 bindsym $mod+Shift+r restart
 # exit i3 (logs you out of your X session)
 bindsym $mod+Shift+e exec "i3-msg exit"
+
+bindsym Print exec scrot -d 3
 
 # lock on hotkey
 bindsym $mod+Shift+z exec --no-startup-id "~/.dotfiles/scripts/lock.sh"
