@@ -24,6 +24,7 @@ set -gx GOPATH $HOME/Workspace/goProjects
 set PATH $PATH $HOME/.dotfiles/scripts
 set PATH $PATH $HOME/.local/bin
 
-thefuck --alias | source
 source ~/.config/fish/abbr.fish    
+zoxide init fish | source
+starship init fish | source
 fish_ssh_agent
