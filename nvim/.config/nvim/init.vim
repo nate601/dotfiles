@@ -32,7 +32,7 @@ Plug 'dense-analysis/ale'
 Plug 'SirVer/ultisnips'
 Plug 'honza/vim-snippets'
 
-Plug 'puremourning/vimspector', {'for':['cs, py']}
+Plug 'puremourning/vimspector'
 
 " Intellisense
 Plug 'prabirshrestha/asyncomplete.vim'
@@ -71,7 +71,8 @@ Plug 'junegunn/goyo.vim'
 
 Plug 'mhinz/vim-startify'
 Plug 'wincent/loupe'
-Plug 'liuchengxu/vim-which-key'
+" Plug 'liuchengxu/vim-which-key'
+Plug 'folke/which-key.nvim'
 Plug 'RRethy/vim-hexokinase', {'do': 'make hexokinase'}
 
 
@@ -89,8 +90,6 @@ Plug 'kyazdani42/nvim-web-devicons'
 Plug 'akinsho/nvim-bufferline.lua'
 
 Plug 'luochen1990/rainbow'
-
-Plug 'davidhalter/jedi-vim'
 
 Plug 'dhruvasagar/vim-table-mode'
 Plug 'ryanoasis/vim-devicons'
@@ -114,15 +113,15 @@ let g:ctrlp_user_command = ['.git', 'cd %s && git ls-files -co --exclude-standar
 
 
 
-let g:which_key_map = {}
+" let g:which_key_map = {}
 
-let g:which_key_map['b'] = {
-            \ 'name' : '+buffers',
-            \ 'n' : ['<leader>bn', 'next-buffer'],
-            \ 'p' : ['<leader>bp', 'prev-buffer'],
-            \ 'd' : ['<leader>bd', 'delete-buffer'],
-            \ 's' : ['<leader>bs', 'vertical-split'],
-            \}
+" let g:which_key_map['b'] = {
+"             \ 'name' : '+buffers',
+"             \ 'n' : ['<leader>bn', 'next-buffer'],
+"             \ 'p' : ['<leader>bp', 'prev-buffer'],
+"             \ 'd' : ['<leader>bd', 'delete-buffer'],
+"             \ 's' : ['<leader>bs', 'vertical-split'],
+"             \}
             
 let g:ale_linters ={
             \ 'cs': ['OmniSharp'],
@@ -131,8 +130,9 @@ let g:ale_linters ={
 let g:ale_linters_ignore ={'rust':['cargo', 'rls', 'rustc']}
 
 
-nnoremap <silent> <leader> :WhichKey '\'<CR>
-call which_key#register('\', "g:which_key_map") 
+" nnoremap <silent> <leader> :WhichKey '\'<CR>
+" call which_key#register('\', "g:which_key_map") 
+
 
 
 autocmd FileType md nnoremap <leader> fr :!pandoc % -f markdown -t latex -o %.pdf<CR>
@@ -150,6 +150,7 @@ nnoremap <leader>bn :bn<CR>
 nnoremap <leader>bp :bp<CR>
 nnoremap <leader>bd :bd<CR>
 nnoremap <leader>bs :buffers<CR>:vert sb 
+nnoremap <leader>bb <cmd>Telescope buffers<cr>
 
 cnoremap w!! execute 'silent! write !sudo tee % >/dev/null' <bar> edit!
 
@@ -170,11 +171,19 @@ let g:qs_highlight_on_keys = ['f', 'F', 't', 'T']
 
 " let g:vimspector_enable_mappings = 'VISUAL_STUDIO'
 
-autocmd FileType cs nmap <Leader>db  <Plug>VimspectorToggleBreakpoint
-autocmd FileType cs nmap <Leader>dB  <Plug>VimspectorToggleConditionalBreakpoint
-autocmd FileType cs nmap <Leader>dd  <Plug>VimspectorContinue
-autocmd FileType cs nmap <Leader>de  <Plug>VimspectorReset
-autocmd FileType cs nmap <Leader>drt <Plug>VimspectorRunToCursor
+nmap <Leader>dd  <Plug>VimspectorToggleBreakpoint
+nmap <Leader>dD  <Plug>VimspectorToggleConditionalBreakpoint
+nmap <Leader>d<space>  <Plug>VimspectorContinue
+nmap <Leader>de  <Plug>VimspectorReset
+nmap <Leader>drt <Plug>VimspectorRunToCursor
+nmap <Leader>di <Plug>VimspectorBalloonEval
+
+" \db = Toggle Breakpoint
+" \dB Toggle Conditional Breakpoint
+" \dd = Contineue
+" \de Reset
+" \drt Run to cursor
+" \di inspect variable
 
 "\fg = GoTo Definition
 "\ft = Type Lookup
@@ -185,19 +194,32 @@ autocmd FileType cs nmap <Leader>drt <Plug>VimspectorRunToCursor
 "\fr = Rename
 "\ff = Code Format
 
+  function! s:check_back_space() abort
+    let col = col('.') - 1
+    return !col || getline('.')[col - 1]  =~ '\s'
+  endfunction
 
-inoremap <silent><expr> <TAB>
-      \ pumvisible() ? "\<C-n>" :
-      \ CheckBackspace() ? "\<TAB>" :
-      \ coc#refresh()
-inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
+  " Insert <tab> when previous text is space, refresh completion if not.
+  inoremap <silent><expr> <TAB>
+	\ coc#pum#visible() ? coc#pum#next(1):
+	\ <SID>check_back_space() ? "\<Tab>" :
+	\ coc#refresh()
+  inoremap <expr><S-TAB> coc#pum#visible() ? coc#pum#prev(1) : "\<C-h>"
 
-inoremap <silent><expr> <c-space> coc#refresh()
+  
+  inoremap <silent><expr> <TAB>
+    \ coc#pum#visible() ? coc#_select_confirm() :
+    \ coc#expandableOrJumpable() ?
+    \ "\<C-r>=coc#rpc#request('doKeymap', ['snippets-expand-jump',''])\<CR>" :
+    \ <SID>check_back_space() ? "\<TAB>" :
+    \ coc#refresh()
 
-function! CheckBackspace() abort
-  let col = col('.') - 1
+  function! s:check_back_space() abort
+    let col = col('.') - 1
     return !col || getline('.')[col - 1]  =~# '\s'
-endfunction
+  endfunction
+
+  let g:coc_snippet_next = '<tab>'
 
 
 function! ShowDocumentation()
@@ -224,28 +246,10 @@ nmap <leader>f<space> <Plug>(coc-codeaction-cursor)
 nmap <leader>fr <Plug>(coc-rename)
 nmap <leader>ff :call CocActionAsync('format')<CR>
 
-
-nnoremap <c-p> <cmd>Telescope find_files<cr>
-
-
-" nnoremap <leader>fg :YcmCompleter GoToDefinition<cr>
-" nnoremap <leader>ft :YcmCompleter GetType<cr>
-" nnoremap <leader>fd :YcmCompleter GetDoc<cr>
-" nnoremap <leader>fdd :YcmCompleter GoToDefinition<cr>
-" nnoremap <leader>fi :YcmCompleter GoToImplementation<cr>
-" nnoremap <leader><space> :YcmCompleter FixIt<cr>
-" nnoremap <leader>fr :YcmCompleter RefactorRename
-" nnoremap <leader>ff :YcmCompleter Format<cr>
-
-
-
-
-nnoremap <leader>fl :YcmRestartServer<cr>
+nnoremap <c-p> <cmd>Telescope git_files<cr>
 
 set splitbelow
 set splitright
-
-
 
 
 set hidden
