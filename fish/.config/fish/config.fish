@@ -25,6 +25,8 @@ set PATH $PATH $HOME/.dotfiles/scripts
 set PATH $PATH $HOME/.local/bin
 
 source ~/.config/fish/abbr.fish    
+source ~/.asdf/asdf.fish
+
 zoxide init fish | source
 starship init fish | source
 fish_ssh_agent
