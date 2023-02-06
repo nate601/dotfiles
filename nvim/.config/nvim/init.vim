@@ -44,8 +44,8 @@ Plug 'sheerun/vim-polyglot'
 
 Plug 'mattn/emmet-vim'
 
-" WakaTime
-Plug 'wakatime/vim-wakatime'
+" " WakaTime
+" Plug 'wakatime/vim-wakatime'
 " Pandoc
 
 Plug 'vim-pandoc/vim-pandoc'
@@ -73,7 +73,7 @@ Plug 'mhinz/vim-startify'
 Plug 'wincent/loupe'
 " Plug 'liuchengxu/vim-which-key'
 Plug 'folke/which-key.nvim'
-Plug 'RRethy/vim-hexokinase', {'do': 'make hexokinase'}
+" Plug 'RRethy/vim-hexokinase', {'do': 'make hexokinase'}
 
 
 Plug 'camspiers/animate.vim'
@@ -99,7 +99,17 @@ Plug 'neoclide/coc.nvim', {'branch':'release'}
 Plug 'dstein64/vim-startuptime'
 Plug 'junegunn/vim-peekaboo'
 
+Plug 'vimwiki/vimwiki', {'branch': 'dev'}
+Plug 'tools-life/taskwiki'
+Plug 'powerman/vim-plugin-AnsiEsc'
+Plug 'farseer90718/vim-taskwarrior'
+
+Plug 'MunifTanjim/nui.nvim'
+Plug 'folke/noice.nvim'
+
 call plug#end()
+
+lua require("noice").setup()
 
 colorscheme dracula
 
