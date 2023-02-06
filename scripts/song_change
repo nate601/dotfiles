@@ -1,0 +1,7 @@
+#!/bin/fish
+
+set title (playerctl metadata -p spotifyd | awk '{$1="";print}' | awk '{$1=$1;$2=$2;print}' | grep 'title' | awk '{$1="";print $0}' | awk '{$1=$1;print}')
+set artist (playerctl metadata -p spotifyd | awk '{$1="";print}' | awk '{$1=$1;$2=$2;print}' | grep ':artist' | awk '{$1="";print $0}' | awk '{$1=$1;print}')
+
+dunstify "Now Playing:" (string join '\n' $title "\n" $artist)
+
