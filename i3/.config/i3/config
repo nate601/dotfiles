@@ -46,7 +46,7 @@ bindsym $mod+grave exec --no-startup-id polybar-msg cmd toggle
 floating_modifier $mod
 
 # start a terminal
-bindsym $mod+Return exec /home/nathan/.local/kitty.app/bin/kitty # start browser 
+bindsym $mod+Return exec wezterm # start browser 
 bindsym $mod+e exec --no-startup-id /usr/bin/google-chrome
 bindsym $mod+m exec --no-startup-id /usr/bin/kitty neomutt
 bindsym $mod+p exec --no-startup-id gvim
